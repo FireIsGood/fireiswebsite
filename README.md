@@ -1,6 +1,8 @@
 # FireIsWebsite
 
-My funny website.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3cec1ef1-8d5e-4f7a-a267-0bfd981129bc/deploy-status)](https://app.netlify.com/sites/unrivaled-daifuku-8bdb99/deploys)
+
+My funny website. Currently on Netlify for the purposes of a tutorial.
 
 ## Installation
 
