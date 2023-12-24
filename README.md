@@ -6,7 +6,7 @@ My funny website.
 
 ### Prerequisites
 
-[Read the Astro quick start guide](https://docs.astro.build/en/install/manual/#prerequisites), but mostly for the prerequisites
+Read the [Astro quick start guide's prerequisite list](https://docs.astro.build/en/install/manual/#prerequisites).
 
 This project uses pnpm. You can check that pnpm is installed in the terminal by running:
 
