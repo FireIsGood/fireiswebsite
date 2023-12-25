@@ -1,0 +1,27 @@
+---
+import Layout from "./Layout.astro";
+
+// Frontmatter properties
+import type { MarkdownLayoutProps } from "astro";
+
+type Props = MarkdownLayoutProps<{
+    title: string;
+    pubDate: string;
+    description: string;
+    author: string;
+    image: {
+        url: string;
+        alt: string;
+    };
+}>;
+
+const { frontmatter } = Astro.props;
+
+const date = new Date(frontmatter.pubDate).toDateString();
+---
+
+<Layout title="Blog" description={frontmatter.description}>
+    <h1>{frontmatter.title}</h1>
+    <p>Published: {date}</p>
+    <slot />
+</Layout>
