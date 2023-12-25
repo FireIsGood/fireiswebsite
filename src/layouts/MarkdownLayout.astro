@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+import Tag from "../components/tag.astro";
 
 // Frontmatter properties
 import type { MarkdownLayoutProps } from "astro";
@@ -25,17 +26,28 @@ const tags = [...(frontmatter.tags ?? [])];
             tags.length > 0 && (
                 <ul class="tag-list">
                     {tags.map((tag) => (
-                        <li class="tag">{tag}</li>
+                        <li>
+                            <Tag {tag} />
+                        </li>
                     ))}
                 </ul>
             )
         }
         <p>Published: {date}</p>
         {
-            frontmatter.description ?? (
+            frontmatter.description !== undefined && (
                 <p>
                     <em>{frontmatter.description}</em>
                 </p>
+            )
+        }
+        {
+            frontmatter.image !== undefined && (
+                <img
+                    src={frontmatter.image.url}
+                    width="300"
+                    alt={frontmatter.image.alt}
+                />
             )
         }
         <hr />
@@ -50,11 +62,7 @@ const tags = [...(frontmatter.tags ?? [])];
         margin: 0;
         gap: 0.5ch;
     }
-    .tag {
-        display: inline-block;
-        padding: 2px 8px;
-        background-color: var(--background-secondary);
-        font-weight: bold;
-        border-radius: 10px;
+    .tag-list > li {
+        display: contents;
     }
 </style>

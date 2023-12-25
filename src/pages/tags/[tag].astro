@@ -1,0 +1,51 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "../../layouts/Layout.astro";
+
+interface Post {
+    file: string;
+    url: string;
+    frontmatter: any;
+}
+
+// Glob all tags
+export const getStaticPaths = (async () => {
+    const allPosts: any[] = await Astro.glob("../posts/*.md");
+
+    const uniqueTags: string[] = [
+        ...new Set(
+            allPosts
+                .flatMap((post: Post) => post.frontmatter.tags)
+                .filter((e: string) => e !== undefined),
+        ),
+    ];
+
+    return uniqueTags.map((tag: string) => {
+        const filteredPosts: Post[] = allPosts.filter((post: Post) =>
+            post.frontmatter.tags?.includes(tag),
+        );
+
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}) satisfies GetStaticPaths;
+
+// Each tag page
+const { tag }: { tag: string } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout title="Tag" description={`Pages tagged ${tag}`}>
+    <p>Posts with <span class="tag">{tag}</span></p>
+    <ul>
+        {
+            posts.map((post: Post) => (
+                <li>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

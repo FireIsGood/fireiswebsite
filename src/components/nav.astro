@@ -1,17 +1,22 @@
 ---
-
+const pages: [string, string][] = [
+    ["Home", "/"],
+    ["About", "/about/"],
+    ["Blog", "/blog/"],
+    ["Tags", "/tags/"],
+];
 ---
 
 <nav>
     <ul>
-        <li>
-            <a href="/">Home</a>
-        </li>
-        <li>
-            <a href="/about/">About</a>
-        </li>
-        <li>
-            <a href="/blog/">Blog</a>
-        </li>
+        {
+            pages.map(([name, url]) => (
+                <li>
+                    <a class="dull-link" href={url}>
+                        {name}
+                    </a>
+                </li>
+            ))
+        }
     </ul>
 </nav>

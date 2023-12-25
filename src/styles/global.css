@@ -77,8 +77,10 @@ hr {
     --background-footer: #d0d0d0;
 
     --background-tag: #ff3b8d;
+    --background-tag-hover: #f865a2;
 
-    --border-primary: #cacaca;
+    --border-primary: #aaa;
+    --border-tag: #d32f73;
 
     --text-normal: #444;
     --text-accent: #800040;
@@ -172,10 +174,7 @@ nav > ul > li {
 }
 /* Better link colors */
 :root nav a {
-    --link-normal: var(--text-normal);
-    --link-hover: var(--text-accent);
-    --link-visited-normal: var(--text-normal);
-    --link-visited-hover: var(--text-accent);
+    text-decoration: underline;
 }
 
 /* Footer */

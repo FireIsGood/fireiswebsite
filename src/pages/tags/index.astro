@@ -1,0 +1,24 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const allPosts = await Astro.glob("../posts/*.md");
+
+const uniqueTags = [
+    ...new Set(
+        allPosts
+            .flatMap((post) => post.frontmatter.tags)
+            .filter((e) => e !== undefined),
+    ),
+];
+---
+
+<Layout title="Tags" description="Tag pages">
+    <p>Wow tags!</p>
+    {
+        uniqueTags.map((tag) => (
+            <li>
+                <a href={`/tags/${tag}`}>{tag}</a>
+            </li>
+        ))
+    }
+</Layout>
