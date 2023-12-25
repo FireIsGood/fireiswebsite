@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/tag.astro";
 
 interface Post {
     file: string;
@@ -38,7 +39,7 @@ const { posts } = Astro.props;
 ---
 
 <Layout title="Tag" description={`Pages tagged ${tag}`}>
-    <p>Posts with <span class="tag">{tag}</span></p>
+    <p>Posts with <Tag {tag} /></p>
     <ul>
         {
             posts.map((post: Post) => (
