@@ -66,9 +66,9 @@ a:visited:focus {
 
 /** Variables **/
 :root {
-    --background-primary: #eeeeeea0;
-    --background-header: #dddddda0;
-    --background-footer: #d0d0d0a0;
+    --background-primary: #eeeeee;
+    --background-header: #dddddd;
+    --background-footer: #d0d0d0;
 
     --border-primary: #cacaca;
 
