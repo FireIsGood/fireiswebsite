@@ -1,4 +1,6 @@
 ---
+import Nav from "../components/nav.astro";
+
 interface Props {
     title: string;
     description: string;
@@ -14,9 +16,15 @@ const { title, description } = Astro.props;
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{title}</title>
+        <title>FireIs{title}</title>
     </head>
     <body>
-        <slot />
+        <header>
+            <h1>FireIs{title}</h1>
+        </header>
+        <Nav />
+        <main>
+            <slot />
+        </main>
     </body>
 </html>
