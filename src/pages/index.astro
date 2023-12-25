@@ -1,8 +1,9 @@
 ---
+import type { Post } from "../ts/utils.ts";
 import Layout from "../layouts/Layout.astro";
 import Search from "../components/search.svelte";
 
-const allPosts = await Astro.glob("../pages/posts/*.md");
+const allPosts: Post[] = await Astro.glob("../pages/posts/*.md");
 ---
 
 <Layout title="Home" description="Home page of FireIsWebsite">

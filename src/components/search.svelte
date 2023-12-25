@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { Post } from "../ts/utils.ts";
     export let searchList: any[];
     import Fuse from "fuse.js";
 
@@ -9,13 +10,8 @@
         minMatchCharLength: 2,
         threshold: 0.5,
     };
-    const fuse = new Fuse(searchList, options);
 
-    interface Post {
-        file: string;
-        url: string;
-        frontmatter: any;
-    }
+    const fuse = new Fuse(searchList, options);
 
     interface Result {
         item: Post;

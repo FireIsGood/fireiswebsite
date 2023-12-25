@@ -1,27 +1,16 @@
 ---
+import { type Post, getUniqueTags } from "../../ts/utils";
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import Tag from "../../components/tag.astro";
 
-interface Post {
-    file: string;
-    url: string;
-    frontmatter: any;
-}
-
 // Glob all tags
 export const getStaticPaths = (async () => {
-    const allPosts: any[] = await Astro.glob("../posts/*.md");
+    const allPosts: Post[] = await Astro.glob("../posts/*.md");
 
-    const uniqueTags: string[] = [
-        ...new Set(
-            allPosts
-                .flatMap((post: Post) => post.frontmatter.tags)
-                .filter((e: string) => e !== undefined),
-        ),
-    ];
+    const uniqueTags = getUniqueTags(allPosts);
 
-    return uniqueTags.map((tag: string) => {
+    return uniqueTags.map((tag) => {
         const filteredPosts: Post[] = allPosts.filter((post: Post) =>
             post.frontmatter.tags?.includes(tag),
         );

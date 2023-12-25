@@ -1,15 +1,10 @@
 ---
+import { type Post, getUniqueTags } from "../../ts/utils";
 import Layout from "../../layouts/Layout.astro";
 
-const allPosts = await Astro.glob("../posts/*.md");
+const allPosts: Post[] = await Astro.glob("../posts/*.md");
 
-const uniqueTags = [
-    ...new Set(
-        allPosts
-            .flatMap((post) => post.frontmatter.tags)
-            .filter((e) => e !== undefined),
-    ),
-];
+const uniqueTags = getUniqueTags(allPosts);
 ---
 
 <Layout title="Tags" description="Tag pages">
