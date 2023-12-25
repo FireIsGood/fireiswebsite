@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import Favicon from "../components/favicon.astro";
 import Nav from "../components/nav.astro";
 
@@ -21,11 +22,21 @@ const { title, description } = Astro.props;
     </head>
     <body>
         <header>
-            <h1>FireIs{title}</h1>
+            <h1 class="title">
+                <a class="home-button" href="/"
+                    >FireIs<span class="page-name">{title}</span></a
+                >
+            </h1>
+            <Nav />
         </header>
-        <Nav />
         <main>
             <slot />
         </main>
+        <footer>
+            <p>Find me elsewhere:</p>
+            <ul>
+                <li><a href="http://github.com/fireisgood">GitHub</a></li>
+            </ul>
+        </footer>
     </body>
 </html>

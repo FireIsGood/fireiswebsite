@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/** CSS reset stuff **/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, sans-serif;
+}
+
+/* Fix media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+}
+
+/* Fix input styles */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Fix text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Fix link colors */
+:where(a) {
+    color: #03f;
+    text-underline-offset: 0.2em;
+}
+:where(a) :visited {
+    color: #7d013e;
+}
+
+/** Variables **/
+:root {
+    --background-primary: #eeeeeea0;
+    --background-header: #dddddda0;
+    --background-footer: #d0d0d0a0;
+
+    --border-primary: #cacaca;
+
+    --text-normal: #444;
+    --text-accent: #800040;
+
+    --center-width-min: 300px;
+    --center-width-max: 800px;
+}
+
+/** Main style **/
+body {
+    /* Grid system with named sections*/
+    display: grid;
+    grid-template-columns:
+        [left]
+        minmax(1rem, 1fr)
+        [center-left]
+        minmax(var(--center-width-min), var(--center-width-max))
+        [center-right]
+        minmax(1rem, 1fr)
+        [right];
+    grid-template-rows: repeat(2, min-content) auto min-content;
+    column-gap: 1rem;
+
+    background-color: var(--background-primary);
+    color: var(--text-normal);
+}
+
+@media (min-width: 1000px) {
+    body {
+        grid-template-rows: min-content auto min-content;
+    }
+}
+
+/* Header */
+header {
+    grid-column: left / right;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    background-color: var(--background-header);
+    padding: 0.75rem 2rem;
+    min-height: 75px;
+}
+
+header * {
+    margin: 0;
+}
+
+.title {
+    min-width: 12ch;
+}
+
+a.home-button {
+    color: unset;
+    text-decoration: unset;
+}
+
+.page-name {
+    color: var(--text-accent);
+}
+
+/* Navigation */
+nav {
+    font-size: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+}
+/* Ignore the semantic ul elements */
+nav > ul,
+nav > ul > li {
+    display: contents;
+}
+/* Better link colors */
+nav a {
+    color: var(--text-normal);
+}
+
+/* Footer */
+footer {
+    grid-column: left / right;
+    grid-row: -2;
+    background-color: var(--background-footer);
+    padding: 0.5rem 1rem 1rem;
+    height: 100px;
+}
+
+footer * {
+    margin: 0;
+}
+
+/** Content style **/
+main {
+    grid-column: center-left / center-right;
+    height: 100%;
+    padding-inline: 1rem;
+}
+
+h2 {
+    margin-block: 0;
+    text-wrap: balance;
+    font-size: 3rem;
+}
