@@ -2,10 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 
 const allPosts = await Astro.glob("../pages/posts/*.md");
-const title = "Blog";
 ---
 
-<Layout {title} description="Blog page of FireIsWebsite">
+<Layout title="Blog" description="Blog page of FireIsWebsite">
     <h1>My Epic Blog Index</h1>
     <p>Here are some of my epic blog posts</p>
     <ul>
