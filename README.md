@@ -20,7 +20,7 @@ pnpm -v
 
 Once the the prerequisites are installed, [clone the repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) to your local machine.
 
-From the command line:
+This can be done from the command line:
 
 ```bash
 git clone git@github.com:FireIsGood/fireiswebsite.git ./fireiswebsite
@@ -30,7 +30,9 @@ git clone git@github.com:FireIsGood/fireiswebsite.git ./fireiswebsite
 
 You can run the development server through the terminal. The default port is
 1625 because I thought it was a funny number, but you can change it with the
-`--port` flag
+`--port` flag.
+
+From the command line:
 
 ```bash
 # Default port 1625
@@ -40,7 +42,7 @@ pnpm dev
 pnpm dev --port 1234
 ```
 
-When astro is done setting up, you should see a success message like:
+When astro is done setting up, you should see a success message.
 
 ```bash
 ┃ Local    http://localhost:1625/
