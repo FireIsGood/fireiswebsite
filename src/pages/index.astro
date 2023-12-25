@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Greeter from "../components/greeter.svelte";
+import Search from "../components/search.svelte";
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <Layout title="Home" description="Home page of FireIsWebsite">
     <h1>My Epic Home Page</h1>
-    <Greeter client:load greetings={["wow", "crazy", "cool"]} />
     <p>
         This is my temporary home page while I figure out what the heck I want
         to do with this
     </p>
+    <Search client:load searchList={allPosts} />
 </Layout>
