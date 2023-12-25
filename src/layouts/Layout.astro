@@ -7,18 +7,19 @@ import Footer from "../components/footer.astro";
 interface Props {
     title: string;
     description: string;
+    viewTransition?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, viewTransition = true } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <Head {title} {description} />
+    <Head {title} {description} {viewTransition} />
     <body>
         <a href="#main" class="skip-to-main dull-link">Skip to main content</a>
         <Header {title} />
-        <main id="main">
+        <main id="main" transition:animate="slide">
             <slot />
         </main>
         <Footer />

@@ -1,15 +1,18 @@
 ---
 import Favicon from "./favicon.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
     title: string;
     description: string;
+    viewTransition: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, viewTransition } = Astro.props;
 ---
 
 <head>
+    {viewTransition && <ViewTransitions />}
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
