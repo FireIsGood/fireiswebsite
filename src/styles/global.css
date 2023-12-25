@@ -49,12 +49,19 @@ h6 {
 }
 
 /* Fix link colors */
-:where(a) {
-    color: #03f;
+a {
+    color: var(--link-normal);
     text-underline-offset: 0.2em;
 }
-:where(a) :visited {
-    color: #7d013e;
+a:hover {
+    color: var(--link-hover);
+}
+a:visited {
+    color: var(--link-visited-normal);
+}
+a:visited:hover,
+a:visited:focus {
+    color: var(--link-visited-hover);
 }
 
 /** Variables **/
@@ -67,6 +74,11 @@ h6 {
 
     --text-normal: #444;
     --text-accent: #800040;
+
+    --link-normal: #0033ff;
+    --link-hover: #1a2552;
+    --link-visited-normal: #7d013e;
+    --link-visited-hover: #440a27;
 
     --center-width-min: 300px;
     --center-width-max: 800px;
@@ -118,7 +130,10 @@ header * {
 }
 
 a.home-button {
-    color: unset;
+    --link-normal: var(--text-normal);
+    --link-hover: var(--text-accent);
+    --link-visited-normal: var(--text-normal);
+    --link-visited-hover: var(--text-accent);
     text-decoration: unset;
 }
 
@@ -139,8 +154,11 @@ nav > ul > li {
     display: contents;
 }
 /* Better link colors */
-nav a {
-    color: var(--text-normal);
+:root nav a {
+    --link-normal: var(--text-normal);
+    --link-hover: var(--text-accent);
+    --link-visited-normal: var(--text-normal);
+    --link-visited-hover: var(--text-accent);
 }
 
 /* Footer */
