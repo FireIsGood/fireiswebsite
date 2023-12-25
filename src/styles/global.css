@@ -64,11 +64,19 @@ a:visited:focus {
     color: var(--link-visited-hover);
 }
 
+/** Generic styles **/
+hr {
+    border-style: solid;
+}
+
 /** Variables **/
 :root {
     --background-primary: #eeeeee;
+    --background-secondary: #cccccc;
     --background-header: #dddddd;
     --background-footer: #d0d0d0;
+
+    --background-tag: #ff3b8d;
 
     --border-primary: #cacaca;
 
