@@ -110,6 +110,22 @@ body {
     color: var(--text-normal);
 }
 
+/* Accessibility skip */
+.skip-to-main {
+    display: block;
+    position: absolute;
+    padding: 1rem;
+    background-color: var(--background-secondary);
+    left: -100%;
+    opacity: 0;
+}
+.skip-to-main:focus,
+.skip-to-main:hover {
+    left: 0;
+    opacity: 1;
+    transition: opacity 100ms ease-out;
+}
+
 /* Header */
 header {
     grid-column: left / right;
@@ -130,7 +146,7 @@ header * {
     min-width: 12ch;
 }
 
-a.home-button {
+a.dull-link {
     --link-normal: var(--text-normal);
     --link-hover: var(--text-accent);
     --link-visited-normal: var(--text-normal);
