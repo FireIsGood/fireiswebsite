@@ -1,0 +1,18 @@
+---
+import Nav from "../components/nav.astro";
+
+interface Props {
+    title: String;
+}
+
+const { title } = Astro.props;
+---
+
+<header>
+    <h1 class="title">
+        <a class="home-button" href="/"
+            >FireIs<span class="page-name">{title}</span></a
+        >
+    </h1>
+    <Nav />
+</header>

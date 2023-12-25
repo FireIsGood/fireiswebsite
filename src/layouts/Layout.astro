@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
 import Favicon from "../components/favicon.astro";
-import Nav from "../components/nav.astro";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
 
 interface Props {
     title: string;
@@ -21,22 +22,10 @@ const { title, description } = Astro.props;
         <title>FireIs{title}</title>
     </head>
     <body>
-        <header>
-            <h1 class="title">
-                <a class="home-button" href="/"
-                    >FireIs<span class="page-name">{title}</span></a
-                >
-            </h1>
-            <Nav />
-        </header>
+        <Header {title} />
         <main>
             <slot />
         </main>
-        <footer>
-            <p>Find me elsewhere:</p>
-            <ul>
-                <li><a href="http://github.com/fireisgood">GitHub</a></li>
-            </ul>
-        </footer>
+        <Footer />
     </body>
 </html>
