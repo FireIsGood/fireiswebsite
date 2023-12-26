@@ -1,21 +1,21 @@
 {
-  "name": "fire_is_website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.3.4",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/svelte": "^5.0.2",
-    "astro": "^4.0.7",
-    "fuse.js": "^7.0.0",
-    "svelte": "^4.2.8",
-    "typescript": "^5.3.3"
-  }
+    "name": "fire_is_website",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro check && astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@astrojs/check": "^0.3.4",
+        "@astrojs/rss": "^4.0.1",
+        "@astrojs/svelte": "^5.0.2",
+        "astro": "^4.0.7",
+        "fuse.js": "^7.0.0",
+        "svelte": "^4.2.8",
+        "typescript": "^5.3.3"
+    }
 }
