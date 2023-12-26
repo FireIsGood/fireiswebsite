@@ -9,8 +9,6 @@
     // Search component
     const options = {
         keys: ["frontmatter.title"],
-        includeMatches: true,
-        minMatchCharLength: 1,
         threshold: 0.5,
     };
 
@@ -25,7 +23,6 @@
     let matches: Result[] = [];
     function handleQuery() {
         matches = fuse.search(query).slice(0, 5);
-        console.log(matches);
     }
 </script>
 
