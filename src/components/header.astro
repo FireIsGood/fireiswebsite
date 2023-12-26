@@ -9,10 +9,54 @@ const { title } = Astro.props;
 ---
 
 <header>
-    <h1 class="title">
+    <div class="title font-alt">
         <a class="dull-link" href="/"
-            >FireIs<span class="page-name">{title}</span></a
-        >
-    </h1>
+            >FireIs<span class="current-link sub-page">{title}</span><span
+                class="home-link sub-page">Home</span
+            >
+        </a>
+    </div>
     <Nav />
 </header>
+
+<style>
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        align-items: center;
+        background-color: var(--background-header);
+        padding: 0.75rem 2rem;
+        min-height: 75px;
+    }
+
+    header * {
+        margin: 0;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: bold;
+        min-width: 12ch;
+        display: grid;
+    }
+    .sub-page {
+        color: var(--text-accent);
+    }
+
+    a {
+        width: fit-content;
+    }
+
+    .home-link {
+        display: none;
+    }
+    a:hover .current-link,
+    a:focus .current-link {
+        display: none;
+    }
+    a:hover .home-link,
+    a:focus .home-link {
+        display: inline;
+    }
+</style>

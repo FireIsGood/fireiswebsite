@@ -1,13 +1,16 @@
 <script lang="ts">
-    import type { Post } from "../ts/utils.ts";
     export let searchList: any[];
+
+    import BlogPosts from "./BlogPosts.svelte";
+
+    import type { Post } from "../ts/utils.ts";
     import Fuse from "fuse.js";
 
     // Search component
     const options = {
         keys: ["frontmatter.title"],
         includeMatches: true,
-        minMatchCharLength: 2,
+        minMatchCharLength: 1,
         threshold: 0.5,
     };
 
@@ -26,38 +29,52 @@
     }
 </script>
 
-<input
-    type="text"
-    bind:value={query}
-    on:input={handleQuery}
-    placeholder="Search articles..."
-/>
+<label for="search" class="search">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-search"
+        ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
+    >
+    <input
+        id="search"
+        type="text"
+        autocomplete="off"
+        bind:value={query}
+        on:input={handleQuery}
+        placeholder="Search articles..."
+    />
+</label>
 
-{#if matches.length > 0}
-    {#each matches as { item }}
-        <ul>
-            <li>
-                <p>
-                    <a href={item.url}>{item.frontmatter.title}</a>
-                </p>
-                <p>
-                    {item.frontmatter.description ?? "No description"}
-                </p>
-            </li>
-        </ul>
-    {/each}
+{#if query !== ""}
+    <p>
+        Found {matches.length}
+        {matches.length === 1 ? "match" : "matches"} for '{query}'
+    </p>
+    <BlogPosts posts={matches.map((m) => m.item)} />
 {/if}
 
 <style>
-    /* Semantic list stuff */
-    ul {
-        display: contents;
+    /* Search box style */
+    .search {
+        display: flex;
+        gap: 0.5rem;
+        background-color: white;
+        padding: 4px 8px;
+        border-radius: 8px;
+        margin-inline: 1ch;
+        cursor: text;
     }
-    li {
-        list-style: none;
-        margin-block: 1rem;
-    }
-    li > p {
-        margin: 0;
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
     }
 </style>

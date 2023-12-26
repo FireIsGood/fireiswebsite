@@ -12,7 +12,7 @@ const pages: [string, string][] = [
         {
             pages.map(([name, url]) => (
                 <li>
-                    <a class="dull-link" href={url}>
+                    <a class="font-alt dull-link" href={url}>
                         {name}
                     </a>
                 </li>
@@ -20,3 +20,24 @@ const pages: [string, string][] = [
         }
     </ul>
 </nav>
+
+<style>
+    nav {
+        font-size: 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+    }
+
+    /* Ignore the semantic ul elements */
+    nav > ul,
+    nav > ul > li {
+        display: contents;
+    }
+
+    /* Better link styles */
+    :root nav a {
+        font-size: 1.25rem;
+        text-decoration: underline;
+    }
+</style>

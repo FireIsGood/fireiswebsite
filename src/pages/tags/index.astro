@@ -1,6 +1,7 @@
 ---
 import { type Post, getUniqueTags } from "../../ts/utils";
 import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/tag.astro";
 
 const allPosts: Post[] = await Astro.glob("../posts/*.md");
 
@@ -8,12 +9,26 @@ const uniqueTags = getUniqueTags(allPosts);
 ---
 
 <Layout title="Tags" description="Tag pages">
-    <p>Wow tags!</p>
-    {
-        uniqueTags.map((tag) => (
-            <li>
-                <a href={`/tags/${tag}`}>{tag}</a>
-            </li>
-        ))
-    }
+    <h1>All tags</h1>
+    <ul>
+        {
+            uniqueTags.map((tag) => (
+                <li>
+                    <Tag {tag} />
+                </li>
+            ))
+        }
+    </ul>
 </Layout>
+
+<style>
+    ul {
+        padding: 0;
+        justify-content: center;
+        display: flex;
+        gap: 1ch;
+    }
+    li {
+        display: contents;
+    }
+</style>
