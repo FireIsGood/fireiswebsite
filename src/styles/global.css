@@ -112,9 +112,13 @@ body {
     grid-template-columns:
         [left]
         1fr
+        [half-left]
+        1fr
         [center-left]
         minmax(var(--center-width-min), var(--center-width-max))
         [center-right]
+        1fr
+        [half-right]
         1fr
         [right];
     grid-template-rows: min-content auto min-content;
