@@ -43,15 +43,6 @@ const tags = [...(frontmatter.tags ?? [])];
                 </p>
             )
         }
-        {
-            frontmatter.image !== undefined && (
-                <img
-                    src={frontmatter.image.url}
-                    width="300"
-                    alt={frontmatter.image.alt}
-                />
-            )
-        }
         <slot />
     </article>
 </Layout>
