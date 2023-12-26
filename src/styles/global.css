@@ -75,12 +75,13 @@ body {
     --background-header: var(--bg1);
     --background-footer: var(--bg1);
 
-    --background-tag: var(--bg2);
-    --background-tag-hover: var(--bg3);
-    --border-tag: var(--bg4);
+    --background-tag: var(--bg1);
+    --background-tag-hover: var(--bg2);
+    --border-tag: var(--bg3);
 
     --text-normal: var(--fg0);
     --text-accent: var(--accent-text);
+    --text-faded: var(--fg1);
 
     --link-normal: var(--accent-text);
     --link-hover: var(--accent-text-lighter);
@@ -97,6 +98,7 @@ body {
     --bg4: #aaa;
 
     --fg0: #444;
+    --fg1: #666;
 
     --accent: #ff3b8d;
     --accent-lighter: #f865a2;
