@@ -6,7 +6,7 @@
 <ul>
     {#each posts as post}
         <li>
-            <div class="post-preview">
+            <div class="post-preview card-shadow">
                 <a class="post-link font-alt" href={post.url}
                     >{post.frontmatter.title}</a
                 >
@@ -32,7 +32,7 @@
     }
 
     .post-preview {
-        background-color: var(--bg1);
+        background-color: var(--bg0);
         padding: 4px 12px;
         border-radius: 8px;
     }

@@ -26,7 +26,7 @@
     }
 </script>
 
-<label for="search" class="search">
+<label for="search" class="search card-shadow">
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

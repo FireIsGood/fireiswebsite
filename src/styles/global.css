@@ -63,21 +63,56 @@ a:hover {
     outline: 3px dashed var(--text-accent);
 }
 
+@media (min-width: 800px) {
+    :root {
+        scrollbar-gutter: stable both-edges;
+    }
+}
+
 /** Generic styles **/
 hr {
-    border-style: solid;
+    --hr-line-offset: 25%;
+    --hr-color: var(--border-color);
+    --hr-text-color: var(--border-color);
+    --hr-text-offset: 2ch;
+    --hr-thickness: 4px;
+    --hr-line-color: var(--hr-color);
+    display: grid;
+    place-items: center;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+        to right,
+        var(--hr-line-color),
+        var(--hr-line-color) calc(50% - var(--hr-text-offset)),
+        transparent calc(50% - var(--hr-text-offset)),
+        transparent calc(50% + var(--hr-text-offset)),
+        var(--hr-line-color) calc(50% + var(--hr-text-offset)),
+        var(--hr-line-color)
+    );
+    margin-block: 2rem;
+}
+
+hr::after {
+    content: "⚘";
+    font-size: 1.5rem;
+    color: var(--hr-text-color);
+    position: absolute;
+    translate: 0 calc(var(--hr-thickness) / -2);
 }
 
 /** Variables **/
 body {
     --background-primary: var(--bg0);
     --background-secondary: var(--bg2);
-    --background-header: var(--bg1);
-    --background-footer: var(--bg1);
+    --background-header: var(--bg0);
+    --background-footer: var(--bg0);
+
+    --border-color: var(--fg0);
+    --border-color: var(--fg0);
 
     --background-tag: var(--bg1);
     --background-tag-hover: var(--bg2);
-    --border-tag: var(--bg3);
+    --border-tag: var(--border-color);
 
     --text-normal: var(--fg0);
     --text-accent: var(--accent-text);
@@ -86,8 +121,17 @@ body {
     --link-normal: var(--accent-text);
     --link-hover: var(--accent-text-lighter);
 
+    /* Sizes */
+    --border-width: 3px;
+    --border-radius-small: 16px;
+    --border-radius-medium: 24px;
+
     --center-width-min: 300px;
     --center-width-max: 800px;
+
+    /* Fonts */
+    --font-header: Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif",
+        "Sitka Small", serif;
 }
 
 :root body {
@@ -176,8 +220,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif";
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-header);
 }
 
 h1 {
@@ -201,4 +244,34 @@ a.dull-link {
     --link-visited-normal: var(--text-normal);
     --link-visited-hover: var(--text-accent);
     text-decoration: unset;
+}
+
+/* Card shadow effect with miniature variant */
+.card-shadow {
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 4px 4px var(--border-color);
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+.card-shadow-mini {
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: 2px 2px var(--border-color);
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+/* Stripe effect */
+.stripe {
+    position: relative;
+    overflow: clip;
+}
+.stripe::after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    right: -75%;
+    rotate: -45deg;
+    height: min(20%, 30px);
+    width: 150%;
+    background-color: var(--accent);
 }

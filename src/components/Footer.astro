@@ -22,6 +22,15 @@
         grid-column: half-left / half-right;
         padding: 0.5rem 1rem 1rem;
         height: 100px;
+        border: 0 solid var(--border-color);
+        border-top-width: var(--border-width);
+    }
+
+    @media (min-width: 800px) {
+        .footer-content {
+            border-inline-width: var(--border-width);
+            border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
+        }
     }
 
     footer * {
