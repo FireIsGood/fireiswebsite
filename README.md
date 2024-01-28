@@ -18,7 +18,7 @@ pnpm -v
 
 ### Setup
 
-Once the the prerequisites are installed, [clone the repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) to your local machine.
+Once the prerequisites are installed, [clone the repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) to your local machine.
 
 This can be done from the command line:
 
