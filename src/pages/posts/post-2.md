@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/MarkdownLayout.astro'
+layout: "../../layouts/MarkdownLayout.astro"
 title: My Second Blog Post
 description: "After learning some Astro, I couldn't stop!"
 pubDate: 2022-07-08
