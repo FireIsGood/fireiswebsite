@@ -44,7 +44,7 @@ pnpm dev
 pnpm dev --port 1234
 ```
 
-When astro is done setting up, you should see a success message.
+When Astro is done setting up, you should see a success message.
 
 ```bash
 ┃ Local    http://localhost:1625/
